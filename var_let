@@ -1,0 +1,26 @@
+"use strict";
+
+var guessMe1 = 1;
+let guessMe2 = 2;
+
+//block scope
+{
+    try {
+        console.log(guessMe1, guessMe2); // (A)
+    } catch (_) {}
+    
+
+    let guessMe2 = 3;
+    console.log(guessMe1, guessMe2); // (B) 
+}
+
+//function scope
+() => {
+    console.log(guessMe1, guessMe2); // (C) () => {
+    console.log(guessMe1); // (D)
+    var guessMe1 = 5;
+    guessMe2 = 6;
+    console.log(guessMe1, guessMe2); // (E)
+}
+
+console.log(guessMe1, guessMe2); // (F)
